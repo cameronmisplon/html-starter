@@ -1,96 +1,992 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script defer src="/_vercel/insights/script.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
-    />
-    <title>Vercel HTML Starter</title>
-    <meta
-      name="description"
-      content="High-performance HTML based website template."
-    />
-  </head>
-  <body>
-    <h1>Vercel HTML Starter</h1>
-    <p>
-      This template is a simple, but powerful single
-      <code>index.html</code> file deployed to
-      <a href="https://vercel.com">Vercel</a>. When your site is deployed, all
-      static assets (like HTML, JavaScript, CSS, images, and more) are deployed
-      globally to every
-      <a href="https://vercel.com/docs/concepts/edge-network/overview"
-        >Vercel Edge Network</a
-      >
-      region.
-    </p>
-    <h2>Simple, privacy-friendly analytics</h2>
-    <p>
-      Want to understand your visitor traffic? Vercel Analytics gives you
-      first-party, privacy-friendly traffic analytics for your HTML site. This
-      template is already configured using the following script:
-    </p>
-    <pre><code>&lt;script defer src="/_vercel/insights/script.js"&gt;&lt;/script&gt;</code></pre>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/analytics">Vercel Analytics</a>.
-    </p>
-    <h2>Integrated with git</h2>
-    <p>
-      Deploying updates to your site is as simple as
-      <code>git push</code> thanks to Vercel's advanced
-      <a href="https://vercel.com/docs/concepts/git">Git Integration</a>.
-      Support for GitHub, GitLab, Bitbucket is zero-configuration, and with the
-      flexible Vercel CLI and API, you can integrate with any tool possible.
-    </p>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/git">Git Integration</a>.
-    </p>
-    <h2>Fast <code>gzip</code> compression</h2>
-    <p>
-      To help ensure the smallest possible file sizes for your static assets,
-      the Vercel Edge Network compresses files by default using
-      <code>gzip</code>. You can also optionally use
-      <code>brotli</code> compressesion if you prefer.
-    </p>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/edge-network/compression"
-        >compression</a
-      >.
-    </p>
-    <h2>Advanced routing configuration</h2>
-    <p>
-      Vercel gives you a variety of ways to configure the routing of your
-      website. For example, adding redirects, rewrites, or headers to your page.
-      While you can use <code>vercel.json</code> to define these through JSON,
-      you can also express your routing configuration as code using
-      <a href="https://vercel.com/docs/concepts/functions/edge-middleware"
-        >Vercel Edge Middleware</a
-      >.
-    </p>
-    <p>
-      Middleware runs before the
-      <a href="https://vercel.com/docs/concepts/edge-network/caching"
-        >Vercel Edge Network Cache</a
-      >, so you can configure routing exactly as your application needs. For
-      example, this template uses <code>middleware.js</code> defined in the root
-      of the repository to add additional security headers to the site:
-    </p>
-    <pre><code>referrer-policy: origin-when-cross-origin
-strict-transport-security: max-age=31536000; includeSubDomains; preload
-x-content-type-options: nosniff
-x-dns-prefetch-control: on
-x-frame-options: DENY</code></pre>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/functions/edge-middleware"
-        >Vercel Edge Middleware</a
-      >.
-    </p>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bee Pop-Up Store Assembly Manual</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #FFF9E6 0%, #FFE5B4 100%);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .bee-icon {
+            font-size: 3rem;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .nav-tabs button {
+            padding: 1rem 2rem;
+            background: white;
+            border: 3px solid #FFB627;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            color: #333;
+        }
+        
+        .nav-tabs button:hover {
+            background: #FFB627;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .nav-tabs button.active {
+            background: #FF6B35;
+            color: white;
+            border-color: #FF6B35;
+        }
+        
+        .section {
+            display: none;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            animation: fadeIn 0.5s;
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section h2 {
+            color: #FF6B35;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            border-bottom: 3px solid #FFB627;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section h3 {
+            color: #FF8C42;
+            margin: 2rem 0 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .connection-visual {
+            background: #f8f9fa;
+            border: 3px solid #FFB627;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .structure-diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .wall-panel {
+            background: #e9ecef;
+            border: 3px solid #333;
+            padding: 2rem 1rem;
+            border-radius: 5px;
+            position: relative;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+        
+        .wall-panel.pine {
+            background: #DEB887;
+            border-color: #8B4513;
+        }
+        
+        .wall-panel.aluminum {
+            background: linear-gradient(135deg, #C0C0C0 0%, #E8E8E8 100%);
+            border-color: #666;
+        }
+        
+        .hinge-connector {
+            background: #FFB627;
+            width: 40px;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 10px;
+            border: 2px solid #FF8C42;
+            position: relative;
+        }
+        
+        .hinge-pin {
+            width: 15px;
+            height: 15px;
+            background: #666;
+            border-radius: 50%;
+        }
+        
+        .cam-lock-visual {
+            background: white;
+            border: 2px solid #FF6B35;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .lock-state {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .lock-illustration {
+            width: 100px;
+            height: 100px;
+            border: 3px solid #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            position: relative;
+            background: #f8f9fa;
+        }
+        
+        .cam-bolt {
+            width: 60px;
+            height: 8px;
+            background: #666;
+            border-radius: 10px;
+            position: absolute;
+        }
+        
+        .cam-bolt.locked {
+            transform: rotate(90deg);
+            background: #28A745;
+        }
+        
+        .allen-key {
+            width: 30px;
+            height: 30px;
+            background: #333;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+        
+        .step-by-step {
+            background: #FFF9E6;
+            border-left: 5px solid #FF6B35;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+        }
+        
+        .step-number {
+            background: #FF6B35;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+        }
+        
+        .warning {
+            background: #FFF3CD;
+            border-left: 5px solid #FFC107;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+        }
+        
+        .tip {
+            background: #D4EDDA;
+            border-left: 5px solid #28A745;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+        }
+        
+        .hardware-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .hardware-card {
+            background: white;
+            border: 3px solid #FFB627;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .hardware-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+        
+        .hardware-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .exploded-view {
+            background: white;
+            border: 3px solid #FF6B35;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .connection-point {
+            background: #FFE5B4;
+            border: 2px dashed #FF6B35;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+        
+        .roof-connection {
+            background: linear-gradient(135deg, #DEB887 0%, #D2691E 100%);
+            border: 3px solid #8B4513;
+            padding: 3rem 1rem 1rem 1rem;
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            border-radius: 5px 5px 0 0;
+            position: relative;
+        }
+        
+        .clip-visual {
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 30px;
+            background: #FFB627;
+            border: 2px solid #FF6B35;
+            border-radius: 5px;
+        }
+        
+        .assembly-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .flow-arrow {
+            font-size: 2rem;
+            color: #FF6B35;
+        }
+        
+        .component-box {
+            background: #f8f9fa;
+            border: 2px solid #FFB627;
+            padding: 1rem;
+            border-radius: 8px;
+            min-width: 150px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="bee-icon">🐝</div>
+        <h1>Bee Pop-Up Store Assembly Manual</h1>
+        <p>Visual Connection Guide for Easy Setup</p>
+    </div>
+    
+    <div class="container">
+        <div class="nav-tabs">
+            <button class="active" onclick="showSection('connections')">🔗 Connection System</button>
+            <button onclick="showSection('components')">📦 Components</button>
+            <button onclick="showSection('assembly')">🔨 Assembly Steps</button>
+            <button onclick="showSection('overview')">📋 Overview</button>
+        </div>
+        
+        <div id="connections" class="section active">
+            <h2>🔗 Connection System - Visual Guide</h2>
+            
+            <div class="tip">
+                <strong>💡 Key Point:</strong> The structure has a PINE WOOD back wall and two ALUMINUM FRAME side walls with perspex panels. These connect together using hinges and locks.
+            </div>
+            
+            <div class="connection-visual">
+                <h3 style="color: #FF6B35; margin-top: 0;">Structure Layout - Top View</h3>
+                <div class="structure-diagram">
+                    <div class="wall-panel aluminum" style="width: 100px;">
+                        <div>SIDE WALL</div>
+                        <div style="font-size: 0.8rem; margin-top: 0.5rem;">Aluminum Frame + Perspex</div>
+                    </div>
+                    
+                    <div class="hinge-connector">
+                        <div class="hinge-pin"></div>
+                        <div class="hinge-pin"></div>
+                        <div class="hinge-pin"></div>
+                        <div style="font-size: 0.7rem; color: white; font-weight: bold;">HINGE</div>
+                    </div>
+                    
+                    <div class="wall-panel pine" style="width: 200px;">
+                        <div>BACK WALL</div>
+                        <div style="font-size: 0.8rem; margin-top: 0.5rem;">Pine Wood</div>
+                        <div style="font-size: 0.7rem; margin-top: 0.5rem;">"BEE HAPPY"</div>
+                    </div>
+                    
+                    <div class="hinge-connector">
+                        <div class="hinge-pin"></div>
+                        <div class="hinge-pin"></div>
+                        <div class="hinge-pin"></div>
+                        <div style="font-size: 0.7rem; color: white; font-weight: bold;">HINGE</div>
+                    </div>
+                    
+                    <div class="wall-panel aluminum" style="width: 100px;">
+                        <div>SIDE WALL</div>
+                        <div style="font-size: 0.8rem; margin-top: 0.5rem;">Aluminum Frame + Perspex</div>
+                    </div>
+                </div>
+                <p style="margin-top: 1rem;"><strong>Front is OPEN</strong> (no wall or door)</p>
+            </div>
+
+            <h3>Connection Method 1: Piano Hinges (Permanent)</h3>
+            <div class="exploded-view">
+                <h4 style="color: #FF6B35;">Purpose: Connect pine back wall to aluminum side walls</h4>
+                
+                <div class="connection-point">
+                    <strong>📍 Location:</strong> Full vertical height on each side of back wall (2 hinges total)
+                </div>
+                
+                <div style="background: #f8f9fa; padding: 2rem; border-radius: 10px; margin: 1rem 0;">
+                    <div style="text-align: center; margin-bottom: 1rem;">
+                        <strong>How Piano Hinges Work:</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 2rem;">
+                        <div>
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">📋 🔗 📋</div>
+                            <div style="font-size: 0.9rem;"><strong>FOLDED FLAT</strong></div>
+                            <div style="font-size: 0.8rem;">For transport</div>
+                        </div>
+                        <div style="font-size: 3rem; color: #FF6B35;">→</div>
+                        <div>
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">📋<br>|🔗<br>📋━━📋</div>
+                            <div style="font-size: 0.9rem;"><strong>UNFOLDED 90°</strong></div>
+                            <div style="font-size: 0.8rem;">Ready to lock</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="connection-point">
+                    <strong>🔧 Installation:</strong>
+                    <ul style="margin-top: 0.5rem; text-align: left;">
+                        <li>One hinge leaf screwed to pine back wall edge</li>
+                        <li>Other hinge leaf bolted to aluminum side frame</li>
+                        <li>Continuous hinge runs full wall height (~2m)</li>
+                        <li>Use stainless steel screws/bolts for durability</li>
+                    </ul>
+                </div>
+                
+                <div class="tip">
+                    <strong>✅ Advantages:</strong> Fastest setup, no loose parts, folds completely flat, strong connection
+                </div>
+            </div>
+
+            <h3>Connection Method 2: Cam Lock System (Quick Release)</h3>
+            <div class="exploded-view">
+                <h4 style="color: #FF6B35;">Purpose: Lock walls at 90° angle when erected</h4>
+                
+                <div class="connection-point">
+                    <strong>📍 Location:</strong> Top and bottom corners where back wall meets side walls (4-6 locks total)
+                </div>
+                
+                <div class="cam-lock-visual">
+                    <div class="lock-state">
+                        <div class="lock-illustration">
+                            <div class="cam-bolt"></div>
+                        </div>
+                        <strong>UNLOCKED</strong>
+                        <p style="font-size: 0.9rem;">Cam bolt horizontal<br>Panels can fold</p>
+                    </div>
+                    
+                    <div style="font-size: 2rem; color: #FF6B35;">⟲ 90°</div>
+                    
+                    <div class="lock-state">
+                        <div class="lock-illustration">
+                            <div class="cam-bolt locked"></div>
+                        </div>
+                        <strong style="color: #28A745;">LOCKED</strong>
+                        <p style="font-size: 0.9rem;">Cam bolt vertical<br>Panels held at 90°</p>
+                    </div>
+                    
+                    <div class="lock-state">
+                        <div style="display: flex; justify-content: center; margin-bottom: 1rem;">
+                            <div class="allen-key"></div>
+                        </div>
+                        <strong>TOOL NEEDED</strong>
+                        <p style="font-size: 0.9rem;">Allen key (hex wrench)<br>Usually 5mm or 6mm</p>
+                    </div>
+                </div>
+                
+                <div class="connection-point">
+                    <strong>🔧 How to Use Cam Locks:</strong>
+                    <ol style="margin-top: 0.5rem; text-align: left;">
+                        <li><strong>Unfold walls:</strong> Open side panels from back wall to 90°</li>
+                        <li><strong>Align holes:</strong> Match up pre-drilled cam lock holes in both panels</li>
+                        <li><strong>Insert cam bolt:</strong> Push bolt through both panels</li>
+                        <li><strong>Lock:</strong> Insert Allen key and rotate 90° clockwise</li>
+                        <li><strong>Test:</strong> Try to move panels - should be rigid</li>
+                    </ol>
+                </div>
+                
+                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; margin: 1rem 0;">
+                    <strong>Cam Lock Placement:</strong>
+                    <div style="margin-top: 1rem; text-align: center;">
+                        <div style="display: inline-block; text-align: left; background: white; padding: 1rem; border-radius: 8px; border: 2px solid #FFB627;">
+                            <div>🔒 <strong>Top of left corner</strong> (back-to-side)</div>
+                            <div>🔒 <strong>Bottom of left corner</strong> (back-to-side)</div>
+                            <div style="margin: 0.5rem 0;">─────────────────</div>
+                            <div>🔒 <strong>Top of right corner</strong> (back-to-side)</div>
+                            <div>🔒 <strong>Bottom of right corner</strong> (back-to-side)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Connection Method 3: Roof Mounting</h3>
+            <div class="exploded-view">
+                <h4 style="color: #FF6B35;">Purpose: Secure pine roof to wall structure</h4>
+                
+                <div style="margin: 2rem 0;">
+                    <div class="roof-connection">
+                        PINE ROOF PANEL
+                        <div style="font-size: 2rem; margin-top: 0.5rem;">🐝</div>
+                        <div class="clip-visual"></div>
+                        <div class="clip-visual" style="left: 20%;"></div>
+                        <div class="clip-visual" style="left: 80%;"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <div class="wall-panel aluminum" style="width: 30%; min-height: 100px;">SIDE</div>
+                        <div class="wall-panel pine" style="width: 35%; min-height: 100px;">BACK</div>
+                        <div class="wall-panel aluminum" style="width: 30%; min-height: 100px;">SIDE</div>
+                    </div>
+                </div>
+                
+                <div class="hardware-showcase">
+                    <div class="hardware-card">
+                        <div class="hardware-icon">🪝</div>
+                        <strong>Hook Clips</strong>
+                        <p>Hook over wall frame, under roof edge</p>
+                    </div>
+                    <div class="hardware-card">
+                        <div class="hardware-icon">🔧</div>
+                        <strong>Toggle Clamps</strong>
+                        <p>Quick-release lever system</p>
+                    </div>
+                    <div class="hardware-card">
+                        <div class="hardware-icon">🔩</div>
+                        <strong>Wing Bolt Clips</strong>
+                        <p>Hand-tighten, no tools needed</p>
+                    </div>
+                </div>
+                
+                <div class="connection-point">
+                    <strong>📍 Clip Placement:</strong> 6-8 clips around perimeter (2-3 per wall edge)
+                </div>
+            </div>
+
+            <h3>Connection Summary</h3>
+            <div class="assembly-flow">
+                <div class="component-box">
+                    <strong>STEP 1</strong>
+                    <div style="margin: 0.5rem 0;">📋━🔗━📋</div>
+                    <div style="font-size: 0.9rem;">Hinges allow unfolding</div>
+                </div>
+                
+                <div class="flow-arrow">→</div>
+                
+                <div class="component-box">
+                    <strong>STEP 2</strong>
+                    <div style="margin: 0.5rem 0;">🔒 × 4</div>
+                    <div style="font-size: 0.9rem;">Cam locks hold 90°</div>
+                </div>
+                
+                <div class="flow-arrow">→</div>
+                
+                <div class="component-box">
+                    <strong>STEP 3</strong>
+                    <div style="margin: 0.5rem 0;">🏠</div>
+                    <div style="font-size: 0.9rem;">Roof clips secure top</div>
+                </div>
+                
+                <div class="flow-arrow">→</div>
+                
+                <div class="component-box">
+                    <strong>READY!</strong>
+                    <div style="margin: 0.5rem 0;">🐝</div>
+                    <div style="font-size: 0.9rem;">Stable structure</div>
+                </div>
+            </div>
+
+            <div class="warning">
+                <strong>⚠️ Critical Connection Points:</strong>
+                <ul style="margin-top: 0.5rem;">
+                    <li>All cam locks must be fully rotated 90° and tight</li>
+                    <li>Piano hinges should move smoothly without binding</li>
+                    <li>Roof clips must grip both roof and wall frame</li>
+                    <li>Check connections before each use</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="components" class="section">
+            <h2>📦 Components & Hardware</h2>
+            
+            <h3>Main Structural Components</h3>
+            <div class="hardware-showcase">
+                <div class="hardware-card" style="border-color: #8B4513;">
+                    <div style="font-size: 3rem;">🪵</div>
+                    <strong>Pine Back Wall</strong>
+                    <p>Solid pine wood panel with "BEE HAPPY" text</p>
+                    <p style="font-size: 0.9rem; color: #666;">Approx. 2m (H) × 2m (W)</p>
+                </div>
+                
+                <div class="hardware-card">
+                    <div style="font-size: 3rem;">🪟</div>
+                    <strong>Aluminum Side Walls (×2)</strong>
+                    <p>Aluminum frames holding yellow-tinted perspex panels</p>
+                    <p style="font-size: 0.9rem; color: #666;">Approx. 2m (H) × 1.5m (D)</p>
+                </div>
+                
+                <div class="hardware-card" style="border-color: #8B4513;">
+                    <div style="font-size: 3rem;">🏠</div>
+                    <strong>Pine Roof Panel</strong>
+                    <p>Waterproof-coated pine with mounted bee statue</p>
+                    <p style="font-size: 0.9rem; color: #666;">Flat/slightly sloped design</p>
+                </div>
+                
+                <div class="hardware-card">
+                    <div style="font-size: 3rem;">📐</div>
+                    <strong>Base Platform</strong>
+                    <p>Wooden base with laminated square-pattern flooring</p>
+                    <p style="font-size: 0.9rem; color: #666;">Foundation for structure</p>
+                </div>
+            </div>
+
+            <h3>Connection Hardware</h3>
+            <div class="hardware-showcase">
+                <div class="hardware-card">
+                    <div class="hardware-icon">🔗</div>
+                    <strong>Piano Hinges (×2)</strong>
+                    <p><strong>Length:</strong> ~2m each (full wall height)</p>
+                    <p><strong>Material:</strong> Stainless steel</p>
+                    <p><strong>Purpose:</strong> Connect back to sides</p>
+                </div>
+                
+                <div class="hardware-card">
+                    <div class="hardware-icon">🔒</div>
+                    <strong>Cam Locks (×4-6)</strong>
+                    <p><strong>Type:</strong> Furniture-style cam lock</p>
+                    <p><strong>Tool:</strong> Allen key (5-6mm)</p>
+                    <p><strong>Purpose:</strong> Lock corners at 90°</p>
+                </div>
+                
+                <div class="hardware-card">
+                    <div class="hardware-icon">🪝</div>
+                    <strong>Roof Clips (×6-8)</strong>
+                    <p><strong>Type:</strong> Hook or toggle clamps</p>
+                    <p><strong>Material:</strong> Steel or aluminum</p>
+                    <p><strong>Purpose:</strong> Secure roof to walls</p>
+                </div>
+                
+                <div class="hardware-card">
+                    <div class="hardware-icon">📌</div>
+                    <strong>Ground Stakes (×4)</strong>
+                    <p><strong>Length:</strong> 30-40cm</p>
+                    <p><strong>Material:</strong> Steel</p>
+                    <p><strong>Purpose:</strong> Anchor to ground</p>
+                </div>
+            </div>
+
+            <h3>Tools Required</h3>
+            <div class="hardware-showcase">
+                <div class="hardware-card">
+                    <div class="hardware-icon">🔧</div>
+                    <strong>Allen Key Set</strong>
+                    <p>For cam locks (5mm & 6mm most common)</p>
+                </div>
+                <div class="hardware-card">
+                    <div class="hardware-icon">🔨</div>
+                    <strong>Rubber Mallet</strong>
+                    <p>For driving ground stakes</p>
+                </div>
+                <div class="hardware-card">
+                    <div class="hardware-icon">📏</div>
+                    <strong>Spirit Level</strong>
+                    <p>Ensure walls are vertical</p>
+                </div>
+                <div class="hardware-card">
+                    <div class="hardware-icon">🧤</div>
+                    <strong>Work Gloves</strong>
+                    <p>Protect hands during assembly</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="assembly" class="section">
+            <h2>🔨 Step-by-Step Assembly</h2>
+            <div class="tip">
+                <strong>⏱️ Time Required:</strong> 30-45 minutes with 2 people
+            </div>
+
+            <div class="step-by-step">
+                <span class="step-number">1</span>
+                <strong>Position Base Platform</strong>
+                <p>Place wooden base on level ground, laminated flooring facing up. Orient with open front toward desired direction.</p>
+            </div>
+
+            <div class="step-by-step">
+                <span class="step-number">2</span>
+                <strong>Unfold Wall Panels</strong>
+                <p>The three walls are hinged together and fold flat for transport.</p>
+                <ul style="margin-top: 0.5rem; margin-left: 3rem;">
+                    <li>Lay folded wall assembly flat on base</li>
+                    <li>Pine back wall is in the middle</li>
+                    <li>Aluminum side walls fold outward via piano hinges</li>
+                    <li>Person 1 holds back wall stable</li>
+                    <li>Person 2 unfolds each side wall to 90°</li>
+                </ul>
+                <div style="text-align: center; margin-top: 1rem; font-size: 1.5rem;">
+                    📋━━📋 → 📋<br>━━━<br>━━📋━━📋
+                </div>
+            </div>
+
+            <div class="step-by-step">
+                <span class="step-number">3</span>
+                <strong>Lock Corners with Cam Locks</strong>
+                <p>Secure each corner where back wall meets side walls.</p>
+                <ul style="margin-top: 0.5rem; margin-left: 3rem;">
+                    <li>Align pre-drilled holes at each corner (top & bottom)</li>
+                    <li>Insert cam bolt through holes in both panels</li>
+                    <li>Insert Allen key into cam mechanism</li>
+                    <li>Rotate 90° clockwise until tight</li>
+                    <li>Repeat for all 4-6 cam locks</li>
+                    <li>Test rigidity - panels should not move</li>
+                </ul>
+                <div class="warning" style="margin-top: 1rem;">
+                    <strong>⚠️ Important:</strong> Ensure panels are at exact 90° angle before locking. Use a square or measure diagonal distances to verify.
+                </div>
+            </div>
+
+            <div class="step-by-step">
+                <span class="step-number">4</span>
+                <strong>Secure Walls to Base</strong>
+                <p>Attach wall assembly to wooden base platform using brackets or bolts at the bottom of each wall panel.</p>
+                <ul style="margin-top: 0.5rem; margin-left: 3rem;">
+                    <li>Use spirit level to check walls are vertical</li>
+                    <li>Tighten all base connections firmly</li>
+                </ul>
+            </div>
+
+            <div class="step-by-step">
+                <span class="step-number">5</span>
+                <strong>Install Roof Panel</strong>
+                <p><strong>REQUIRES 2 PEOPLE</strong> - Roof is heavy and awkward to handle.</p>
+                <ul style="margin-top: 0.5rem; margin-left: 3rem;">
+                    <li>Both people lift pine roof panel from opposite sides</li>
+                    <li>Ensure bee statue faces forward (open front)</li>
+                    <li>Position roof on top of all three walls</li>
+                    <li>Adjust for even overhang on all sides</li>
+                    <li>Attach roof clips around perimeter:</li>
+                    <ul style="margin-left: 1rem;">
+                        <li>2-3 clips on back wall edge</li>
+                        <li>2 clips on each side wall edge</li>
+                        <li>Hook clips over wall frames and under roof edge</li>
+                        <li>Tighten or lock each clip</li>
+                    </ul>
+                    <li>Verify roof is stable and won't shift</li>
+                </ul>
+            </div>
+
+            <div class="step-by-step">
+                <span class="step-number">6</span>
+                <strong>Anchor Structure</strong>
+                <p>Prevent movement and tipping.</p>
+                <ul style="margin-top: 0.5rem; margin-left: 3rem;">
+                    <li><strong>Outdoor/Grass:</strong> Hammer ground stakes through base corners into earth</li>
+                    <li><strong>Indoor/Hard Surface:</strong> Place sandbags or water weights at base corners</li>
+                    <li>Test stability by gently pushing structure</li>
+                </ul>
+            </div>
+
+            <div class="step-by-step">
+                <span class="step-number">7</span>
+                <strong>Position Display Items</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 3rem;">
+                    <li>Place display tables inside structure</li>
+                    <li>Position honeycomb flower display</li>
+                    <li>Arrange for good customer flow</li>
+                </ul>
+            </div>
+
+            <div class="step-by-step">
+                <span class="step-number">8</span>
+                <strong>Final Safety Check</strong>
+                <p>✅ Checklist before opening:</p>
+                <ul style="margin-top: 0.5rem; margin-left: 3rem;">
+                    <li>All cam locks fully engaged and tight</li>
+                    <li>Roof clips secure on all sides</li>
+                    <li>Structure doesn't wobble when pushed</li>
+                    <li>Base is level and stable</li>
+                    <li>No sharp edges exposed</li>
+                    <li>Perspex panels clean and intact</li>
+                    <li>Ground stakes fully inserted (if outdoor)</li>
+                </ul>
+            </div>
+
+            <div class="tip">
+                <strong>🎉 Assembly Complete!</strong> Your Bee Pop-Up Store is ready for business. Stock your products and welcome customers!
+            </div>
+
+            <h3>Disassembly (Reverse Order)</h3>
+            <div class="assembly-flow">
+                <div class="component-box">
+                    Clear displays
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="component-box">
+                    Remove stakes
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="component-box">
+                    Unclip roof
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="component-box">
+                    Unlock cam locks
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="component-box">
+                    Fold panels flat
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="component-box">
+                    Load for transport
+                </div>
+            </div>
+
+            <div class="tip" style="margin-top: 2rem;">
+                <strong>⏱️ Disassembly Time:</strong> 20-30 minutes
+                <p style="margin-top: 0.5rem;">Store folded panels flat to prevent warping. Keep all hardware in labeled bags.</p>
+            </div>
+        </div>
+        
+        <div id="overview" class="section">
+            <h2>📋 Overview & Specifications</h2>
+            
+            <h3>Structure Design</h3>
+            <p>The Bee Pop-Up Store is a three-walled portable retail structure featuring:</p>
+            <ul style="margin: 1rem 0 1rem 2rem;">
+                <li><strong>Pine wood back wall</strong> - Solid, paintable surface with "BEE HAPPY" branding</li>
+                <li><strong>Aluminum frame side walls</strong> - Lightweight frames holding yellow-tinted perspex panels</li>
+                <li><strong>Pine wood roof</strong> - Waterproof-coated with decorative bee statue</li>
+                <li><strong>Open front</strong> - No wall or door for easy customer access</li>
+                <li><strong>Wooden base</strong> - Laminated flooring provides stable foundation</li>
+            </ul>
+
+            <h3>Key Specifications</h3>
+            <div class="hardware-showcase">
+                <div class="hardware-card">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">📏</div>
+                    <strong>Dimensions</strong>
+                    <p>~2m (W) × 1.5m (D) × 2m (H)</p>
+                </div>
+                <div class="hardware-card">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">⚖️</div>
+                    <strong>Weight</strong>
+                    <p>~35-40 kg fully assembled</p>
+                </div>
+                <div class="hardware-card">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">⏱️</div>
+                    <strong>Setup Time</strong>
+                    <p>30-45 minutes (2 people)</p>
+                </div>
+                <div class="hardware-card">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🚚</div>
+                    <strong>Transport</strong>
+                    <p>Folds flat for truck bed</p>
+                </div>
+            </div>
+
+            <h3>Design Features</h3>
+            <div class="connection-point">
+                <strong>✨ Portability:</strong> Piano hinge system allows panels to fold completely flat. No loose panels to track.
+            </div>
+            <div class="connection-point">
+                <strong>⚡ Quick Setup:</strong> Cam lock system provides tool-assisted but fast corner locking (90° rotation).
+            </div>
+            <div class="connection-point">
+                <strong>💪 Durability:</strong> Aluminum frames are lightweight but strong. Pine wood components resist wear.
+            </div>
+            <div class="connection-point">
+                <strong>☔ Weather Resistant:</strong> Waterproof roof coating protects from rain. Structure can withstand moderate weather.
+            </div>
+            <div class="connection-point">
+                <strong>🎨 Visual Appeal:</strong> Honeycomb patterns, bee statue, and yellow-tinted perspex create instant brand recognition.
+            </div>
+
+            <h3>Safety Guidelines</h3>
+            <div class="warning">
+                <strong>⚠️ Always Follow These Rules:</strong>
+                <ul style="margin-top: 0.5rem;">
+                    <li>Never attempt solo assembly - requires 2 people minimum</li>
+                    <li>Wear work gloves when handling aluminum and wood</li>
+                    <li>Work on level ground only</li>
+                    <li>Don't set up in winds exceeding 40 km/h (25 mph)</li>
+                    <li>Always anchor structure with stakes or weights</li>
+                    <li>Inspect all connections before each use</li>
+                    <li>Don't overload roof with additional weight</li>
+                    <li>Disassemble if severe weather is forecast</li>
+                </ul>
+            </div>
+
+            <h3>What Makes This System Work</h3>
+            <div class="exploded-view">
+                <h4 style="color: #FF6B35;">The Connection Strategy</h4>
+                <p style="margin: 1rem 0;">The structure uses a <strong>hybrid connection system</strong> that balances portability with stability:</p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;">
+                    <div style="background: #E8F5E9; padding: 1rem; border-radius: 8px;">
+                        <strong style="color: #28A745;">PERMANENT CONNECTIONS</strong>
+                        <p style="margin-top: 0.5rem;">Piano hinges keep panels together during transport and storage. No loose parts.</p>
+                    </div>
+                    <div style="background: #FFF3E0; padding: 1rem; border-radius: 8px;">
+                        <strong style="color: #FF8C42;">REMOVABLE CONNECTIONS</strong>
+                        <p style="margin-top: 0.5rem;">Cam locks and roof clips allow quick assembly/disassembly while providing rigid structure.</p>
+                    </div>
+                </div>
+
+                <p>This means:</p>
+                <ul style="margin: 1rem 0 1rem 2rem;">
+                    <li>✅ Walls unfold as one unit (hinges)</li>
+                    <li>✅ Corners lock rigid at 90° (cam locks)</li>
+                    <li>✅ Roof attaches/detaches quickly (clips)</li>
+                    <li>✅ Everything folds flat for transport (hinges again)</li>
+                </ul>
+            </div>
+
+            <h3>Troubleshooting</h3>
+            <div class="hardware-showcase">
+                <div class="hardware-card">
+                    <strong>Structure Wobbles</strong>
+                    <p>→ Tighten all cam locks<br>→ Check ground is level<br>→ Add more stakes/weights</p>
+                </div>
+                <div class="hardware-card">
+                    <strong>Panels Won't Lock at 90°</strong>
+                    <p>→ Check hinge alignment<br>→ Verify cam holes aligned<br>→ Clean debris from locks</p>
+                </div>
+                <div class="hardware-card">
+                    <strong>Roof Doesn't Sit Flush</strong>
+                    <p>→ Verify 90° wall angles<br>→ Check walls are same height<br>→ Adjust clip positions</p>
+                </div>
+                <div class="hardware-card">
+                    <strong>Hinges Stiff/Squeaky</strong>
+                    <p>→ Apply silicone lubricant<br>→ Work back and forth<br>→ Check for bent pins</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%); color: white; border-radius: 15px; text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🐝</div>
+                <h3>Need Help?</h3>
+                <p>Contact support if you have questions about assembly or need replacement parts.</p>
+                <p style="margin-top: 1rem;">📧 support@beepopup.com | 📞 [Your phone number]</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.nav-tabs button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
 </html>
