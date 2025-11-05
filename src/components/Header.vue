@@ -9,7 +9,7 @@
       ]"
     />
     <h1 class="text-4xl mb-2 drop-shadow-md relative z-10">
-      BEE Mindful Pop-Up Store
+      BEE MINDFUL Pop-Up Store
     </h1>
     <p class="text-lg opacity-95 relative z-10">Assembly Manual - Portable Honeycomb Structure</p>
   </header>
